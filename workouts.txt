@@ -1,0 +1,8 @@
+Abs;Dragon Fly;Crunch;Plank;Side Plank;Flutter Kick;Russian Twist;Sit up
+Back;Lat Pulldown;Seated Rows; Deadlift;Pull up;T-bar Row;Dumbbell Row
+Bicep;Barbell Curls;Standing Dumbell Curl;Incline Dumbbell Curl;Hammer Curl;Zottman Curl;Preacher Curl; Drag Curl;Spider Curl; Cable Curl
+Chest;Bench Press;Dumbbell Bench Press;Inclined Bench Press; Inclined Dumbbell Press;Push-up;Dips;Cable Fly
+Forearm;Dumbbell Wrist FLexion;Dumbbell Wrist Extension;Farmer's Walk;Sulek Cable Curl
+Legs;Squat; Hack-Squat;RDL;Bulgarian Split Squat;Leg Press;Leg Extension;Hamstring Curl;Calf Raise
+Shoulder;Dumbbell Lateral Raises;Cable Lateral Raises;Machine Shoulder Press;Dumbbell Shoulder Press;Front Raise;Arnold Press;Y-Raises;Rear Delt Fly;Machine Reverse Fly
+Tricep;Lying Tricep Extension;Push-down;Skull Crusher;Overhead Cable Extension;Close Grip Bench Press;Cable Kick-Back

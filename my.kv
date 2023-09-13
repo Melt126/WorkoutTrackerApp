@@ -1,0 +1,216 @@
+
+<MainWindow>:
+    name: "ready"
+
+    FloatLayout:
+        Label:
+            text: "Ready to start a workout?"
+            font_size: (root.width**2+root.height**2) / 13**4
+            size_hint: 0.35, 0.15
+            pos_hint:{"x":0.35,"y":0.65}
+            #text.size: self.size
+            valign:"center"
+        Button:
+            pos_hint:{"x":0.3,"y":0.3}
+            size_hint: 0.4, 0.1
+            font_size: ((root.width**2 + root.height**2) / 17**4)*4.5
+            text: "Let's start!"
+            on_release:
+                root.manager.transition.direction = "left"
+                root.workoutBtn()
+
+<MuscleWindow>:
+    name: "muscle"
+    FloatLayout:
+
+        Label:
+            text: "Pick a muscle group"
+            font_size: (root.width**2+root.height**2) / 13**4
+            size_hint: 0.35, 0.15
+            pos_hint:{"x":0.35,"y":0.8}
+            #text.size: self.size
+            valign:"center"
+            halign: "center"
+
+        Button:
+            text:"<--"
+            font_size: ((root.width**2+root.height**2) / 13**4)*.8
+            size_hint:0.2,0.05
+            pos_hint:{"x":0,"top":.9999}
+            on_release:
+                root.back()
+        
+        GridLayout:
+            id: button_container
+            cols: 3
+            size_hint: 0.9,0.75
+            pos_hint: {"center_x":0.5,"y":0}
+<PickWorkout>:
+    name: "workout"
+    group: group
+    prev: prev
+    FloatLayout:
+        Label:
+            id: group
+            text: group.text
+            
+            font_size: ((root.width**2+root.height**2) / 13**4)*1.5
+            size_hint: 0.35, 0.15
+            pos_hint:{"x": 0.45,"y":0.8}
+            text_size: self.size
+        
+        Button:
+            id: prev
+            text:"<--"
+            font_size: ((root.width**2+root.height**2) / 13**4)*.8
+            size_hint:0.2,0.05
+            pos_hint:{"x":0,"top":.9999}
+            on_release:
+                root.back()
+        GridLayout:
+            id: button_container
+            cols:2
+            size_hint: 0.9,0.75
+            pos_hint: {"center_x":0.5,"y":0}
+<TimeInfo>:
+    name:"timeInfo"
+    min:min
+    sec:sec
+    FloatLayout:
+        cols:1
+        FloatLayout:
+            Label:
+                text:"Rest period: "
+                size_hint: 0.8,0.2
+                pos_hint: {"x": 0.1, "top": 1}
+                font_size: ((root.width**2+root.height**2)/14**4)*2
+                #FloatLayout:
+            TextInput:
+                id: min
+                font_size: (root.width**2 + root.height**2) / 13**4
+                multiline: False
+                pos_hint: {"x": 0.15 , "top":0.75}
+                size_hint: 0.3, 0.1
+            Label:
+                text:"m "
+                font_size: ((root.width**2 + root.height**2) / 13**4)*1.2
+                pos_hint: {"x":0.335, "top":0.75}
+                size_hint: 0.3, 0.15
+            TextInput:
+                id: sec
+                font_size: (root.width**2 + root.height**2) / 13**4
+                multiline: False
+                pos_hint: {"x": 0.525 , "top":0.75}
+                size_hint: 0.3, 0.1
+            Label:
+                text:"s"
+                font_size: ((root.width**2 + root.height**2) / 13**4)*1.2
+                pos_hint: {"x":0.67, "top":0.75}
+                size_hint: 0.36, 0.15
+            Button:
+                pos_hint:{"x":0.2,"y":0.15}
+                size_hint: 0.6, 0.2
+                font_size: (root.width**2 + root.height**2) / 13**4
+                text: "Enter"
+                on_release:
+                    root.toLog()
+            Button:
+                text:"<--"
+                font_size: ((root.width**2+root.height**2) / 13**4)*.8
+                size_hint:0.2,0.05
+                pos_hint:{"x":0,"top":.9999}
+                on_release:
+                    root.back()
+<Log>:
+    name: "log"
+    title: title
+    tog:tog
+    rest: rest
+    showTime:showTime
+    weight: weight
+    reps: reps
+    weightReps: weightReps
+    FloatLayout:
+        cols: 1
+        FloatLayout:
+            size: root.width, root.height/2
+            Label: 
+                id: title
+                text: title.text
+                size_hint: 0.8,0.2
+                pos_hint: {"x": 0.1, "top": 1}
+                font_size: ((root.width**2+root.height**2) / 13**4)*1.5 #(root.width**2+root.height**2)/14**4
+            Label:
+                text:"Weight: "
+                font_size: (root.width**2 + root.height**2) / 13**4
+                pos_hint: {"x":0.1, "top":0.825}
+                size_hint: 0.15, 0.15
+            TextInput:
+                id: weight
+                font_size: (root.width**2 + root.height**2) / 13**4
+                multiline: False
+                pos_hint: {"x": 0.35 , "top":0.8}
+                size_hint: 0.6, 0.1
+            Label:
+                
+                text:"Reps: "
+                font_size: (root.width**2 + root.height**2) / 13**4
+                pos_hint: {"x":0.1, "top":0.625}
+                size_hint: 0.15, 0.15
+            TextInput:
+                id: reps
+                font_size: (root.width**2 + root.height**2) / 13**4
+                multiline: False
+                pos_hint: {"x": 0.35 , "top":0.6}
+                size_hint: 0.6, 0.1
+            Label:
+                text:"Timer: "
+                font_size: ((root.width**2 + root.height**2) / 13**4)*1.2
+                pos_hint: {"x":0.3 ,"top":0.35}
+                size_hint: 0.1, 0.1
+            Button:
+                id:tog
+                text:"Start"            
+                font_size: ((root.width**2 + root.height**2) / 13**4)*.8
+                pos_hint: {"x":0.15, "top":0.25}
+                size_hint: 0.3, 0.1
+                on_press:
+                    root.toggle()
+            
+            Label:
+                id:showTime
+                text: showTime.text
+                font_size: ((root.width**2 + root.height**2) / 13**4)*1.2
+                pos_hint: {"x":0.45, "top":0.35}
+                size_hint: 0.3, 0.1
+            
+            Button:
+                id: rest
+                text:"Reset"            
+                font_size: ((root.width**2 + root.height**2) / 13**4)*.8
+                pos_hint: {"x":0.55, "top":0.25}
+                size_hint: 0.3, 0.1
+                #disabled: True
+                on_press:
+                    root.reset()
+
+            #need to add button that logs information
+            Button: 
+                id:weightReps
+                text: "Log"
+                font_size: ((root.width**2 + root.height**2) / 13**4)*.8
+                pos_hint: {"x":0.225, "top":0.45}
+                size_hint: 0.55, 0.10
+                on_release:
+                    print("To log btn")
+                    root.logBtn()
+
+
+            Button:
+                text:"<--"
+                font_size: ((root.width**2+root.height**2) / 13**4)*.8
+                size_hint:0.2,0.05
+                pos_hint:{"x":0,"top":.9999}
+                on_release:
+                    #root.reset()
+                    root.back()
